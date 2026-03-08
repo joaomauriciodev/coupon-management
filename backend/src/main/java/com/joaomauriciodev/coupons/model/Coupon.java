@@ -20,7 +20,7 @@ public class Coupon {
     @Column(unique = true, nullable = false)
     private String code;
 
-    private Double discountType;
+    private String discountType;
 
     private Double discountValue;
 

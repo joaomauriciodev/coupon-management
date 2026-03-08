@@ -2,7 +2,7 @@ spring:
   application:
     name: coupons
   datasource:
-    url: jdbc:postgresql://localhost:5432/coupons
+    url: jdbc:postgresql://localhost:5432/coupon_db
     username: postgres
     password: postgres
 
