@@ -1,9 +1,10 @@
 services:
+
   postgres:
     image: postgres:16
     container_name: coupon_postgres
     restart: always
-    environement:
+    environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: coupon_db
