@@ -48,4 +48,24 @@ public class CouponService {
     public List<Coupon> list(){
         return couponRespository.findAll();
     }
+
+    public CouponResponse deactivateCoupon(Long id){
+        Coupon coupon = couponRespository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Coupon not found"));
+
+        coupon.setActive(false);
+        Coupon updatedCoupon = couponRespository.save(coupon);
+
+        return CouponResponse.builder()
+            .id(updatedCoupon.getId())
+            .code(updatedCoupon.getCode())
+            .discountType(updatedCoupon.getDiscountType())
+            .discountValue(updatedCoupon.getDiscountValue())
+            .maxUses(updatedCoupon.getMaxUses())
+            .minOrderValue(updatedCoupon.getMinOrderValue())
+            .expirationAt(updatedCoupon.getExpirationAt())
+            .active(updatedCoupon.getActive())
+            .currentUses(updatedCoupon.getCurrentUses())
+            .build(); 
+    }
 }
